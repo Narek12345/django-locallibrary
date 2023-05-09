@@ -1,0 +1,11 @@
+# Python байт код.
+__pycache__
+
+# Виртуальное окружение.
+venv
+
+# БД.
+db.sqlite3
+
+# Миграций.
+migrations
