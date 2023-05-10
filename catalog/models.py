@@ -34,6 +34,14 @@ class Book(models.Model):
 		return reverse('book-detail', args=[str(self.id)])
 
 
+	def display_genre(self):
+		"""Создаем строку для Genre. Это необходимо для отображения жанра в Admin."""
+		print(type(self))
+		return ', '.join([ genre.name for genre in self.genre.all()[:3]])
+
+	display_genre.short_description = 'Genre'
+
+
 
 class BookInstance(models.Model):
 	"""Модель, представляющая конкретный экземпляр книги (т.е. который можно взять в библиотеке)."""
@@ -58,7 +66,7 @@ class BookInstance(models.Model):
 
 	def __str__(self):
 		"""Строка для представления обьекта модели."""
-		return f'{self.id} {self.book.title}'
+		return f'{self.book} {self.id}'
 
 
 
@@ -67,7 +75,7 @@ class Author(models.Model):
 	first_name = models.CharField(max_length=100)
 	last_name = models.CharField(max_length=100)
 	date_of_birth = models.DateField(null=True, blank=True)
-	data_of_death = models.DateField('Died', null=True, blank=True)
+	date_of_death = models.DateField('Died', null=True, blank=True)
 
 
 	def get_absolute_url(self):
@@ -77,4 +85,4 @@ class Author(models.Model):
 
 	def __str__(self):
 		"""Строка для представления обьекта модели."""
-		return f"(self.last_name, self.first_name)"
+		return f"{self.last_name} {self.first_name}"
