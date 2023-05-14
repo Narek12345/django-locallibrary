@@ -28,6 +28,8 @@ urlpatterns = [
     path('catalog/', include('catalog.urls')),
     # Перенаправляем запросы с корневого URL на URL приложения catalog.
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+    # Приложение для аутентификаций, входа и выхода из системы.
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 # Размещение статических файлов.
