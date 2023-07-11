@@ -33,7 +33,9 @@
     <p>Then after copying, preferably create a virtual environment in the folder where you copied the code (if you have linux write python3):</p>
     <code>python -m venv venv</code>
     <p>Start the virtual environment:</p>
-    <code>Windows: venv\Scripts\activate Linux: source venv/bin/activate</code>
+    <code>Windows: venv\Scripts\activate</code>
+    <br>
+    <code>Linux: source venv/bin/activate</code>
   </li>
   
   <li>
